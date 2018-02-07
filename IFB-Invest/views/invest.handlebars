@@ -1,0 +1,386 @@
+<script src="/socket.io/socket.io.js"></script>
+  <link href="/css/investui.css" rel="stylesheet" />
+	<link href="/css/invest.css" rel="stylesheet" />
+	<script src="/js/app.js"></script>
+  <style>
+#particles-js{
+background-color: #e88312;
+height:500px;
+background-image: url('../infosys.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-repeat: no-repeat;
+}
+<!-- 0x8fc53b232ab36aa1ebd4714cbd6afee10fd7746a -->
+</style>
+  <style>
+.margin-top-1 {
+  margin-top: 1em;
+}
+body {
+background-image: url("http://cdn.wallpapersafari.com/76/25/ZbVEyH.jpg");
+
+}
+</style>
+<nav class="navbar hideall navbar-default hideall">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+        data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span> <span
+          class="icon-bar"></span> <span class="icon-bar"></span> <span
+          class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+    </div>
+  </div>
+</nav>
+ <div id="particles-js" class="hideall"></div>
+ <header class="hideall" id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center"> IFB <small>Investor-Portal</small></h1>
+     <h4 class="text-center">Invoice Financing Portal</h4>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="main">
+ <div class="container">
+   <div class="row">
+     <div class="col-md-4 col-md-offset-4">
+ <div class="panel panel-default">
+       <div class="panel-heading main-color-bg">
+         <h3 class="panel-title">Credentials are stored in Blockchain</h3>
+       </div>
+   <div class="panel-body">
+   <div class="well">
+             <div>
+               <label>AccountAddress</label> <input type="text" class="form-control"
+     id="aa" placeholder="paste the address details" >
+             </div>
+     <div>
+               <label>Username</label> <input type="text" class="form-control"
+     id="username" placeholder="Name Registred in Blockchain" #id>
+             </div>
+             <div>
+               <label>Password</label> <input type="password"
+     class="form-control" id="bp" placeholder="Password Registred in Blockchain">
+    </div>
+   </div>
+             <button  id="bl" class="btn btn-default btn-block">Login</button>
+   </div>
+     </div>
+ </div>
+   </div>
+ </div>
+</section>
+
+	<div class="sidebar" id="sideBar" data-color="purple"
+		data-image="/assets/img/sidebar-2.jpg">
+		<div class="sidebar-wrapper">
+			<div class="logo">
+				<img src="/ifb.jpg"> </a>
+			</div>
+
+			<ul class="nav">
+
+				<li>
+					<div class="logo">
+						<i class="pe-7s-user"></i>
+						<div id="welcomeinvestor"></div>
+					</div>
+				</li>
+				<li class="active"><a> <i class="pe-7s-graph"></i>
+						<p>Dashboard</p>
+				</a></li>
+				<li>
+					<div class="logo">
+						<i class="pe-7s-news-paper"></i>
+						<button class="btn btn-danger ">Online Investors</button>
+					</div>
+				</li>
+				<li class="logo">
+					<div id="users"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="main-panel" id="mainpanel">
+		<nav class="navbar navbar-default navbar-fixed">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#navigation-example-2">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Dashboard</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="fa fa-dashboard"></i>
+								<p class="hidden-lg hidden-md">Dashboard</p>
+						</a></li>
+					</ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/dashboard" class="btn btn-success" style="color:white";>
+                Invoices-Zone
+            </a></li>
+
+          </ul>
+				</div>
+			</div>
+		</nav>
+
+
+
+		<div class="panel panel-primary margin-top-1 ">
+			<div class="panel-heading">
+				<h3 class="panel-title">Invoice Financing on Blockchain</h3>
+			</div>
+			<div class="panel-body">
+
+				<div class="panel-body"></div>
+
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#sectionA"><i
+							class="fa fa-user"></i>Invoice Record Details</a></li>
+					<li><a data-toggle="tab" href="#sectionB"><i
+							class="fa fa-user"></i>Invoice Record Updation</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="sectionA" class="tab-pane fade in active">
+						<div class="panel panel-primary margin-top-1">
+							<div class="panel-heading">
+								<h3 class="panel-title">Invoice Record Details</h3>
+								<h6 style='color: orange; font-size: 175%;' id="res"></h6>
+							</div>
+							<div class="panel-body">
+								<div class="container">
+									<hr>
+									<div class="col-md-7 form-line">
+										<div>
+											<label>Invoice-ContractAddress</label> <input type="text"
+												class="form-control" id="contractAddress"
+												placeholder="paste the Invoice address details">
+										</div>
+									</div>
+									<div class="col-md-3 form-line">
+										<label> IFB</label>
+										<button id="getInvoice" onclick="App.getInvoice()"
+											class="btn btn-danger btn-block">Submit</button>
+										<br>
+									</div>
+									<div class="panel-body"></div>
+									<hr>
+									<div class="col-md-4 form-line">
+										<div class="form-group">
+											<label for="seller">Seller:</label> <input type="text"
+												id="seller" class="form-control" placeholder="USTGlobal"></input>
+										</div>
+										<div class="form-group">
+											<label for="buyer">Buyer:</label> <input type="text"
+												id="buyer" class="form-control" placeholder="Wallmart"></input>
+										</div>
+
+
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="investor">Investor:</label> <input type="text"
+												id="investor" class="form-control"></input>
+										</div>
+										<div class="form-group">
+											<label for="cost">Cost:</label> <input type="text" id="cost"
+												class="form-control" placeholder="1500000"></input>
+										</div>
+
+									</div>
+									<div class="col-md-3">
+
+										<div class="form-group">
+											<label for="status1">Status:</label> <input type="text"
+												id="status1" class="form-control" placeholder="Open"></input>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="sectionB" class="tab-pane fade">
+						<div class="panel panel-primary margin-top-1">
+							<div class="panel-heading">
+								<h3 class="panel-title">Invoice Record Updation</h3>
+								<h6 style='color: orange; font-size: 175%;' id="res1"></h6>
+							</div>
+							<div class="panel-body">
+								<div class="container">
+									<hr>
+									<div class="col-md-4 form-line">
+
+										<div class="form-group">
+											<label for="investor">Investor:</label> <input type="text"
+												id="newInvestor" class="form-control"
+												placeholder="American Century"></input>
+										</div>
+
+									</div>
+									<div class="col-md-4 form-line">
+										<div class="form-group">
+											<label for="status1">Status:</label> <input type="text"
+												id="newStatus" class="form-control" placeholder="Ex: closed"></input>
+										</div>
+									</div>
+									<div class="col-md-3 form-lin">
+										<label>Record to update in Blockchain:</label>
+										<button id="updateInvoice" onclick="App.updateInvoice()"
+											class="btn btn-danger btn-block">Finance this Invoice</button>
+									</div>
+
+								</div>
+								<hr>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+        <div class="panel panel-primary margin-top-1">
+        <div class="panel-heading">
+          <h3 class="panel-title">Latest Invoice Financing details</h3>
+          <h6 style='color: orange; font-size: 175%;' id="res1"></h6>
+        </div>
+        <div class="panel-body">
+
+          <div id="chatArea" class="row">
+
+            <div class="col-md-12">
+              <div class="chat" id="chat">
+                <!-- chat will be append here-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+
+	</div>
+	<!-- main panel end tag -->
+	<script>
+
+		$(function() {
+			var socket = io.connect();
+			var $updateInvoice = $('#updateInvoice');
+      var $blockchainLogin = $('#bl');
+			var $contractAddress = $('#contractAddress');
+			var $chat = $('#chat');
+			var $chatArea = $('#chatArea');
+      var $newStatus = $('#newStatus');
+      var $newInvestor = $('#newInvestor');
+			var $userFormArea = $('#userFormArea');
+			var $userForm = $('#userForm');
+			var $users = $('#users');
+			var $username = $('#username');
+			var $welcomeinvestor = $('#welcomeinvestor');
+      var $main = $('#main');
+	  
+			$updateInvoice.click(function(e) {
+			InvoiceContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"GetCount","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"seller","type":"string"},{"name":"buyer","type":"string"},{"name":"investor","type":"string"},{"name":"cost","type":"uint256"},{"name":"status1","type":"string"}],"name":"addNewInvoice","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"CountNo","type":"uint8"},{"name":"investor","type":"string"},{"name":"status1","type":"string"}],"name":"updateInvoice","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"CountNo","type":"uint8"}],"name":"getInvoice","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
+			var contractAddress = document.getElementById("contractAddress").value;
+			var deployedInvoice = InvoiceContract.at(contractAddress);
+			var newInvestor = document.getElementById("newInvestor").value;
+			var newStatus = document.getElementById("newStatus").value;		
+			
+			deployedInvoice.GetCount.call(function(error, Count) {		
+			deployedInvoice.getInvoice.call(Count - 1, function(err, res) {
+					    var one = new String('Closed');
+						var two = new String(res[4]);
+						if( one.valueOf() === two.valueOf()){
+						alert('!!!This Invoice has already Financed!!!')
+						}else {
+						
+						deployedInvoice.updateInvoice(Count - 1, newInvestor, newStatus, function(error, response) {
+					if(error){
+						alert('Updation Process has been failed');
+					}
+					else{
+						e.preventDefault();							
+				        socket.emit('send address', {address:$contractAddress.val(), newstatus: $newStatus.val()});			
+					}
+				});
+				
+				}
+			});
+												
+			});										
+			});
+			socket.on('new address', function(data) {
+				var check1 = data.msg == '' ? true : false;
+				if (!check1) {
+					$chat.append('<div class="well"><strong style="padding:0px 30px 0px 0px;">' + data.user + ':<br> Closed Contract </strong>' + data.address + '</div>');
+				}
+			});
+			$blockchainLogin.click(function(e) {
+
+        var AccContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"GetCount","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"CountNo","type":"uint8"}],"name":"getAccount","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"companyName","type":"string"},{"name":"username","type":"string"},{"name":"password","type":"string"},{"name":"role","type":"string"}],"name":"addNewAccount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
+        var Acc = AccContract.at(aa.value);
+        Acc.GetCount.call(function (error, Count){
+        Acc.getAccount.call(Count-1,function(err, res){
+        console.log(bp.value);
+        var one = new String(bp.value);
+        var two = new String(res[2]);
+        if( one.valueOf() === two.valueOf()){
+        <!-- alert("Succeccfully Authenticated"); -->
+        bl.innerHTML = "<h4 style='color:green'>Succeccfully Authenticated</h4>";
+         setTimeout(function(){
+           e.preventDefault();
+           $welcomeinvestor.html('<h4 id="welcomeinvestor"><strong style="padding:0px 0px 0px 8px;font-size: 20px; color:orange;  ">' + $username.val() + '</strong></h4>');
+           socket.emit('new user', $username.val(), function(data) {
+
+           });
+           
+             $('#main').hide();
+             $('.hideall').hide();
+             $('#chatArea').show();
+             $('#sideBar').show();
+             $('#mainpanel').show();
+                },2000);
+
+        }else {
+        <!-- alert("User Credentials are wrong"); -->
+        bl.innerHTML = "<h4 style='color:red'>User Credentials are wrong</h4>";
+        }
+
+      });
+      });
+
+			});
+			socket.on('get users', function(data) {
+
+				var html = '';
+				for (i = 0; i < data.length; i++) {
+					html += '<li><strong style=" color:#39CCCC;font-size: 20px;font-family: "Times New Roman", Times, serif; ">' + data[i] + '</li>';
+
+				}
+				$users.html(html);
+			});
+
+		});
+	</script>
+  <script src="./particles.js"></script>
+  <script src="./particlesjsn.js"></script>

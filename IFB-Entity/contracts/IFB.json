@@ -1,0 +1,55 @@
+pragma solidity ^0.4.6;
+
+contract IFB
+
+{
+ 
+    struct Invoice{
+        string seller;
+        string buyer;
+        string investor;
+        uint cost;
+        string status1;
+        uint createDate;
+        uint updateDate;
+    }
+    
+    mapping(uint => Invoice) Total;
+    uint8 Count=0;
+
+    function addNewInvoice(string seller,string buyer,string investor,uint cost,string status1) 
+    {
+       
+        Invoice memory newInvoice;
+        newInvoice.seller = seller;
+        newInvoice.buyer= buyer;
+        newInvoice.investor= investor;
+        newInvoice.cost= cost;
+        newInvoice.status1= status1;
+        newInvoice.createDate = now;
+        newInvoice.updateDate = now;
+        Total[Count] = newInvoice;
+        Count++;
+        
+    }
+    
+    function updateInvoice(uint8 CountNo,string investor,string status1)  
+    {
+  
+    
+        Total[CountNo].investor= investor;
+        Total[CountNo].status1= status1;
+        Total[CountNo].updateDate = now;
+    
+    }
+    
+    
+    function GetCount() returns(uint8){
+        return Count;
+    }
+
+    function getInvoice(uint8 CountNo) returns (string,string,string,uint,string,uint,uint)
+    {
+        return (Total[CountNo].seller,Total[CountNo].buyer,Total[CountNo].investor,Total[CountNo].cost,Total[CountNo].status1,Total[CountNo].createDate,Total[CountNo].updateDate);
+    }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EmployeeChain</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+    .margin-top-1 {
+      margin-top: 1em;
+    }
+	body {
+    background-image: url("http://cdn.wallpapersafari.com/76/25/ZbVEyH.jpg");
+   
+	}
+  </style>
+  <script src="./app.js"></script>
+</head>
+<!-- 0x51620082404a7f4a2b9e1b16410d6d53469a31bd -->
+<body>
+   <h1 style="color:white ">Invoice Financing on Blockchain (IFB)</h1>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#sectionA" ><i class="fa fa-user"></i>Invoice Record Creation</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+           <div class="panel panel-primary margin-top-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Invoice Record Creation</h3>
+						<h6 style='color:orange; font-size:175%;' id="res"></h6>
+                </div>
+                <div class="panel-body">
+				<br> <label for="contractAddress">Contract Address:</label> <input type="text" id="contractAddress" placeholder="create a new contract"></input>
+				<br> <label for="seller">Seller:</label> <input type="text" id="seller" placeholder="Enter Seller details"></input>
+				<br> <label for="buyer">Buyer:</label> <input type="text" id="buyer" placeholder="Enter Buyer details"></input>
+				<br> <label for="investor">Investor:</label> <input type="text" id="investor" placeholder="Enter Investor details"></input>
+				<br> <label for="cost">Cost:</label> <input type="text" id="cost" placeholder="Enter Total Money"></input>				
+				<br> <label for="status1">Status:</label> <input type="text" id="status1" placeholder="Ex: Initiated"></input>						
+                   <div class="col-md-12">
+				   
+							<div class="col-md-6">
+                           <br> <br>
+                              <button id="createContract" class="btn btn-primary" onclick="App.createContract()">Create New Contract</button>
+                            </div>
+							<div class="col-md-6">   
+                           <br> <br>
+                        
+                             <button id="addNewAccount" class="btn btn-primary" onclick="App.addNewInvoice()">Add New Invoice</button>
+							</div>
+                  </div>
+                </div>
+            </div> 
+        </div>                           
+    </div>   
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IFB-EntityPortal</title>
+<meta name="description" content="UST Global: chatwithUST to stay in touch with UST employees anytime and anywhere. chatwithUST is free and offers simple, secure, reliable messaging  available on website all over the world.">
+<meta name="keywords" content="chatwithUST, UST Global, free corporate chat app">
+<meta name="author" content="Narendranath Reddy">
+<meta name="google-site-verification" content="tEAm6dKt5cLYpLfuvwkbVhgKL9uyst0c7HuUFnCGTWs" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!-- Bootstrap core CSS     -->
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="/assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="/assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+
+    <link href="/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <link href="./css/mainlook.css" rel="stylesheet" />
+	<link href="./css/style.css" rel="stylesheet" />
+	<style>
+    .margin-top-1 {
+      margin-top: 1em;
+    }
+	#particles-js{
+		background-color: #e88312;
+		height:500px;
+		background-image: url('../login.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		}
+	.invoice{
+	display:none;
+	    }
+	body {
+    background-image: url("http://cdn.wallpapersafari.com/76/25/ZbVEyH.jpg");
+	}
+  </style>
+
+</head>
+<!-- 0x51620082404a7f4a2b9e1b16410d6d53469a31bd -->
+<body>
+<nav class="navbar hideall navbar-default hideall">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+        data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span> <span
+          class="icon-bar"></span> <span class="icon-bar"></span> <span
+          class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+    </div>
+  </div>
+</nav>
+ <div id="particles-js" class="hideall"></div>
+  <header class="hideall" id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center"> IFB <small>Entity-Portal</small></h1>
+     <h4 class="text-center">Invoice Creation Portal</h4>
+        </div>
+      </div>
+    </div>
+  </header>
+<section id="main">
+ <div class="container">
+   <div class="row">
+     <div class="col-md-4 col-md-offset-4">
+ <div class="panel panel-default">
+       <div class="panel-heading main-color-bg">
+         <h3 class="panel-title">Credentials are stored in Blockchain</h3>
+       </div>
+   <div class="panel-body">
+   <div class="well">
+             <div>
+               <label>AccountAddress</label> <input type="text" class="form-control"
+     id="aa" placeholder="paste the address details" >
+             </div>
+     <div>
+               <label>Username</label> <input type="text" class="form-control"
+     id="username" placeholder="Name Registred in Blockchain" #id>
+             </div>
+             <div>
+               <label>Password</label> <input type="password"
+     class="form-control" id="bp" placeholder="Password Registred in Blockchain">
+    </div>
+   </div>
+             <button  id="bl" class="btn btn-default btn-block">Login</button>
+   </div>
+     </div>
+ </div>
+   </div>
+ </div>
+</section>
+
+
+	<div class="invoice">
+	<div class="panel-body"></div> <div class="panel-body"></div> 
+	<div class="section-content">
+				<h1 class="section-header" ><span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s">Invoice Financing on Blockchain<br>(IFB)</span></h1>
+	</div>
+	<ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#sectionA" ><i class="fa fa-user"></i>Invoice Record Creation</a></li>
+    </ul>
+   <section id="contact">			  						
+			<div class="contact-section">
+			<div class="container">
+				<div class="form-group container">
+					    	<label for="res">TransactionHash:</label> 
+							<input type="text" id="res" class="form-control" placeholder="Hash value"></input>
+			  	</div>
+					<div class="col-md-6 form-line">
+			  		
+			  				<label for="contractAddress">Contract Address:</label> 
+							<input type="text" id="contractAddress" class="form-control" placeholder="create a new contract"></input>
+				  		
+				  		<div class="form-group">
+					    	 <label for="seller">Seller:</label> 
+							 <input type="text" id="seller" class="form-control"  placeholder="Enter Seller details"></input>
+					  	</div>	
+					  	<div class="form-group">
+					    	<label for="buyer">Buyer:</label> 
+							<input type="text" id="buyer" class="form-control" placeholder="Enter Buyer details"></input>
+			  			</div>
+						<div class="form-group">
+					    	<label for="investor">Investor:</label> 
+							<input type="text" id="investor" class="form-control" placeholder="Enter Investor details"></input>
+			  			</div>
+						
+			  		</div>
+			  		<div class="col-md-6">
+			  			<div class="form-group">
+					    	<label for="cost">Cost:</label>
+							<input type="text" id="cost" class="form-control" placeholder="Enter Total Money"></input>	
+			  			</div>
+						<div class="form-group">
+					    	<label for="status1">Status:</label> 
+							<input type="text" id="status1" class="form-control" placeholder="Ex: Initiated"></input>
+			  			</div>
+						
+						<div>
+						<button id="clear" class="btn btn-default submit" ><i class="fa fa-paper-plane" aria-hidden="true"></i>ClearAll</button>
+						</div>
+						<div>					
+						<button id="createContract" class="btn btn-default submit" onclick="App.createContract()"><i class="fa fa-paper-plane" aria-hidden="true"></i>New Contract</button>
+						</div>
+						<br><br><br>
+			  			<div>
+
+			  				<button id="addNewInvoice" class="btn btn-default submit" onclick="App.addNewInvoice()"><i class="fa fa-paper-plane" aria-hidden="true"></i>New Invoice</button>
+			  			</div>
+			  		<div>
+					<a href='/'><button  class="btn btn-default submit" ><i class="fa fa-paper-plane" aria-hidden="true"></i>Logout</button></a>
+					</div>
+					</div>
+				
+			</div>
+		</section>
+		
+		</div>
+		<script>
+		$(function(){
+		var socket = io.connect();
+		var $contractAddress = $('#contractAddress');
+		var $seller = $('#seller');
+		var $buyer= $('#buyer');
+		var $status1 =$('#status1');
+		var $cost =$('#cost');	
+		var $blockchainLogin = $('#bl');
+		var $addNewInvoice =$('#addNewInvoice');
+		var $clear = $('#clear');
+		var $investor = $('#investor');
+		var $res =$('#res');
+		
+		$clear.click(function(e) {
+		
+		$contractAddress.val('');
+		$seller.val('');
+		$buyer.val('');
+		$status1.val('');
+		$cost.val('');
+		$investor.val('');
+		$res.val('');
+		});
+		$blockchainLogin.click(function(e) {
+
+        var AccContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"GetCount","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"CountNo","type":"uint8"}],"name":"getAccount","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"fullIdentity","type":"string"},{"name":"username","type":"string"},{"name":"password","type":"string"},{"name":"role","type":"string"}],"name":"addNewAccount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
+        var Acc = AccContract.at(aa.value);
+        Acc.GetCount.call(function (error, Count){
+        Acc.getAccount.call(Count-1,function(err, res){    
+        console.log(bp.value);
+        var one = new String(bp.value);
+        var two = new String(res[2]);
+		var security = new String(res[3]);
+		var entity = new String('entity');
+        if( one.valueOf() === two.valueOf() && security.valueOf() === entity.valueOf()){
+         <!-- alert("Succeccfully Authenticated"); -->
+        bl.innerHTML = "<h4 style='color:green'>Succeccfully Authenticated</h4>";
+         setTimeout(function(){
+           e.preventDefault();         
+             $('.hideall').hide();
+             $('.invoice').show();     
+			 $('#main').hide();  			 
+                },2000);
+
+        }else {
+        <!-- alert("User Credentials are wrong"); -->
+        bl.innerHTML = "<h4 style='color:red'>Un Authorized !!</h4>";
+        }
+
+      });
+      });
+
+			});		
+							$addNewInvoice.click(function(e){
+							e.preventDefault();
+							socket.emit('send invoice', {ca:$contractAddress.val(), seller:$seller.val(),buyer:$buyer.val(),status1:$status1.val(),cost:$cost.val()});						
+											 });						 						 				
+				
+		});
+</script>
+		
+		
+</body>
+<script src="./js/app.js"></script>
+<script src="./particles.js"></script>
+<script src="./particlesjsn.js"></script>
+</html>
